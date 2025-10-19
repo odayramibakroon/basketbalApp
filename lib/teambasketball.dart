@@ -37,7 +37,7 @@ class _TeambasketballState extends State<Teambasketball> {
     setState(() {
       counter += add;
     });
-    widget.onScoreChanged(counter); // نرسل القيمة الجديدة للأب
+    widget.onScoreChanged(counter);  
   }
 
   @override
