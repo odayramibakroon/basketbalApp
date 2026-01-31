@@ -25,42 +25,46 @@ class _BasketbalhomeState extends State<Basketbalhome> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center, // 🔹 توسيط الفرق
-
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Expanded(flex: 4, child: Teambasketball( key:TeambasketKey,teamname: "Team A")),
-                Container(
-                  height: size.height * 0.5,
-                  width: 2,
-                  color: Colors.grey,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center, // 🔹 توسيط الفرق
+            
+                  children: [
+                    Expanded(flex: 4, child: Teambasketball( key:TeambasketKey,teamname: "Team A")),
+                    Container(
+                      height: size.height * 0.5,
+                      width: 2,
+                      color: Colors.grey,
+                    ),
+                    Expanded(flex: 4, child: Teambasketball(key:TeambasketKey2,teamname: "Team B")),
+                  ],
                 ),
-                Expanded(flex: 4, child: Teambasketball(key:TeambasketKey2,teamname: "Team B")),
+                const SizedBox(height: 30),
+            
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.orange,
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      TeambasketKey.currentState?.reset();
+                      TeambasketKey2.currentState?.reset();
+                    });
+                  },
+                  child: const Text(
+                    "Reset Both",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
               ],
             ),
-            const SizedBox(height: 30),
-
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.orange,
-                padding: const EdgeInsets.symmetric(vertical: 16),
-              ),
-              onPressed: () {
-                setState(() {
-                  TeambasketKey.currentState?.reset();
-                  TeambasketKey2.currentState?.reset();
-                });
-              },
-              child: const Text(
-                "Reset Both",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );

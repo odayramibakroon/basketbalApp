@@ -16,14 +16,7 @@ class TeambasketballState extends State<Teambasketball> {
   void initState() {
     super.initState();
   }
-  /*
-  @override
-  void didUpdateWidget(covariant Teambasketball oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (widget.score != oldWidget.score) {
-      counter = widget.score;
-    }
-  }*/
+ 
 
   void onAddPoints(int add) {
     setState(() {
@@ -34,14 +27,12 @@ class TeambasketballState extends State<Teambasketball> {
   void reset() {
     setState(() {
       counter = 0;
-      print(counter);
-    });
+     });
   }
 
   @override
   Widget build(BuildContext context) {
-    print(counter);
-
+ 
     return Column(
       children: [
         Text(widget.teamname, style: const TextStyle(fontSize: 30)),
